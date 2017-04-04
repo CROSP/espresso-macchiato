@@ -148,7 +148,7 @@ public class EspRecyclerViewItem extends EspView {
      *
      * @since Espresso Macchiato 0.5
      */
-    protected Matcher<View> baseMatcherForItemChild(@Nullable Matcher<View> matcher) {
+    public Matcher<View> baseMatcherForItemChild(@Nullable Matcher<View> matcher) {
         return EspRecyclerViewMatcher.withRecyclerView(recyclerViewMatcher).atChildIndexOnView(index, matcher);
     }
 
@@ -159,7 +159,7 @@ public class EspRecyclerViewItem extends EspView {
      *
      * @since Espresso Macchiato 0.6
      */
-    protected ViewInteraction findRecyclerView() {
+    public ViewInteraction findRecyclerView() {
         return onView(baseMatcher());
     }
 
@@ -172,7 +172,7 @@ public class EspRecyclerViewItem extends EspView {
      *
      * @since Espresso Macchiato 0.6
      */
-    protected ViewInteraction findRecyclerView(Matcher<View> additional) {
+    public ViewInteraction findRecyclerView(Matcher<View> additional) {
         return onView(allOf(baseMatcher(), additional));
     }
 
@@ -184,7 +184,7 @@ public class EspRecyclerViewItem extends EspView {
      * @return Interaction for assertion and actions.
      */
     @Override
-    protected ViewInteraction findView(List<Matcher<View>> additional) {
+    public ViewInteraction findView(List<Matcher<View>> additional) {
         ArrayList<Matcher<? super View>> allMatcher = new ArrayList<>();
         allMatcher.add(baseMatcherForItemChild(null));
         allMatcher.addAll(additional);
