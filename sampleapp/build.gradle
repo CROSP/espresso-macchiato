@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion '25.0.2'
+
+    defaultConfig {
+        applicationId "de.nenick.espressomacchiato"
+
+        minSdkVersion 18
+        targetSdkVersion 25
+
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // support code coverage for testing
+            testCoverageEnabled = true
+        }
+    }
+    android {
+        lintOptions {
+            disable 'GoogleAppIndexingWarning' // ignore GoogleAppIndexingWarning, this app will never be released
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:design:24.1.1'
+    androidTestCompile project(':espresso-macchiato')
+}
