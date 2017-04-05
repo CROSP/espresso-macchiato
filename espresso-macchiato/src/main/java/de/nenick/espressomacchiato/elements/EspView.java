@@ -29,7 +29,7 @@ import static org.hamcrest.CoreMatchers.not;
 
 /**
  * Basic view actions and assertions for a common view.
- *
+ * <p>
  * Used as base class for mostly all view elements.
  * Extending this element is a good starting point if you need to create a new view element.
  *
@@ -43,9 +43,7 @@ public class EspView {
      * Create new instance matching an element with given resourceId.
      *
      * @param resourceId Identifier for this element.
-     *
      * @return New element instance for actions and assertions.
-     *
      * @since Espresso Macchiato 0.1
      */
     public static EspView byId(int resourceId) {
@@ -56,7 +54,6 @@ public class EspView {
      * Create an allOf matcher builder for this element.
      *
      * @return New allOf matcher builder.
-     *
      * @since Espresso Macchiato 0.4
      */
     public static EspAllOfBuilder<? extends EspView> byAll() {
@@ -68,7 +65,6 @@ public class EspView {
      * Create new instance matching an element with given resourceId.
      *
      * @param resourceId Identifier for this element.
-     *
      * @since Espresso Macchiato 0.1
      */
     public EspView(int resourceId) {
@@ -79,7 +75,6 @@ public class EspView {
      * Create new element instance with custom base matcher.
      *
      * @param base Matcher for this element.
-     *
      * @since Espresso Macchiato 0.2
      */
     public EspView(Matcher<View> base) {
@@ -90,7 +85,6 @@ public class EspView {
      * Create new instance based on given element matcher.
      *
      * @param template Pre configured element matcher.
-     *
      * @since Espresso Macchiato 0.5
      */
     public EspView(EspView template) {
@@ -99,7 +93,7 @@ public class EspView {
 
     /**
      * Check that a view is currently full shown on the screen so the user can see it.
-     *
+     * <p>
      * A view can exist and is in state visible but not currently displayed.
      * When the view height or width is greater than the screen it would still match.
      *
@@ -120,7 +114,7 @@ public class EspView {
 
     /**
      * Check that you can't see the view.
-     *
+     * <p>
      * True when the view is in state invisible, gone or currently not displayed on screen.
      *
      * @since Espresso Macchiato 0.3
@@ -134,7 +128,7 @@ public class EspView {
 
     /**
      * Check only a small part of the view is visible on screen.
-     *
+     * <p>
      * Does fail if the view is fully displayed.
      *
      * @since Espresso Macchiato 0.4
@@ -145,7 +139,7 @@ public class EspView {
 
     /**
      * Check if at least a small part of the view is visible on screen.
-     *
+     * <p>
      * Does fail if the view is not displayed. Success if partially or full visible.
      *
      * @since Espresso Macchiato 0.4
@@ -248,9 +242,7 @@ public class EspView {
      * Find view to perform actions or assertions.
      *
      * @param additional Provide extra matcher additional to the base matcher.
-     *
      * @return View interaction to perform actions or assertions.
-     *
      * @since Espresso Macchiato 0.1
      */
     protected ViewInteraction findView(List<Matcher<View>> additional) {
@@ -276,7 +268,7 @@ public class EspView {
         return new ArrayList<>(Arrays.asList(matcher));
     }
 
-    protected Matcher<View> baseMatcher() {
+    public Matcher<View> baseMatcher() {
         return baseMatcher;
     }
 }
